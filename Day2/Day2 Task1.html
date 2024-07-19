@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login and Registration Forms</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: ;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+            background: lightsteelblue;
+        }
+        .form-container {
+            padding: 20px;
+            width: 50%;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-container form input {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 20px;
+            }
+        .form-container form button {
+            padding: 10px;
+            font-size: 20px;
+            background-color: whitesmoke;
+            color: black;
+        }
+        .form-container form button:hover {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Login</h2>
+            <form>
+                <input type="Email" placeholder="Email" required>
+                <input type="password" placeholder="Password"required>
+                <input type="captcha" placeholder="captcha"requirede>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+        <div class="form-container">
+            <h2>Register</h2>
+            <form>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                Choose Country:<select>
+                    <option>India</option>
+                    <option>UK</option>
+                    <option>USA</option>
+                    <option>Australia</option>
+                </select>
+                <br>
+                passport:<br>
+                YES<input type="radio" name="passport">
+                NO<input type="radio" name="passport">
+                <br><br>
+                <label>My Declaration is Correct</label>
+                <input type="checkbox" name="checkbox">
+                <button type="submit">submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
