@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	Enter the Year: <input type="year" id="year" value="">
+<button onclick="fun()">Check</button>
+<p id="mango"></p>
+
+</body>
+<script>
+var year1;
+function fun()
+{
+  year1 = document.getElementById("year").value;
+  if(year1)
+  {
+    if((year1%4==0) && (year1%100!=0))
+    {
+      document.getElementById("mango").innerHTML = "Leap Year";
+    }
+    else if(year1%400==0)
+    {
+      document.getElementById("mango").innerHTML = "Leap Year";
+    }
+    else
+    {
+      document.getElementById("mango").innerHTML = "Not a Leap Year";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
