@@ -1,0 +1,41 @@
+ body {
+            font-family: Arial, sans-serif;
+            background-color: ;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+            background: lightsteelblue;
+        }
+        .form-container {
+            padding: 20px;
+            width: 50%;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-container form input {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 20px;
+            }
+        .form-container form button {
+            padding: 10px;
+            font-size: 20px;
+            background-color: whitesmoke;
+            color: black;
+        }
+        .form-container form button:hover {
+            background-color: pink;
+        }
