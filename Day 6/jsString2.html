@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo">Please visit Instagram!</p>
+	<script>
+		let text="mouli are u fine,how r u dng";
+		let len=text.length;
+		document.write(len);
+		document.write("<br>");
+		let pos=text.charAt(0);
+		document.write(pos);
+		document.write("<br>");
+		let sli=text.slice(7,13);
+		document.write(sli);
+		document.write("<br>");
+		let part = text.substr(7, 2);
+		document.write(part);
+		document.write("<br>");
+		let text1 = "Hello";
+		let text2 = "World!";
+		let text3 = text1.concat(" ",text2);
+		document.write(text3);
+		document.write("<br>");
+		let text4 = "  Hello Girl!  ";
+		let text5 = text4.trim();
+		document.write(text5);
+		document.write("<br>");
+		function myFunction() {
+ 		 let text = document.getElementById("demo").innerHTML; 
+  		document.getElementById("demo").innerHTML =
+		text.replace(/Instagram/i,"Whatsapp");
+  		}
+		
+		
+		
+</script>
+		
+</body>
+</html>
