@@ -1,0 +1,75 @@
+CREATE DATABASE ciet
+
+CREATE TABLE student1(sid int(6) PRIMARY KEY AUTO_INCREMENT,sname varchar(15) NOT NULL,address text NULL,phone varchar(10) UNIQUE,dob date NULL,salary float(5,2) NOT NULL,email varchar(20) UNIQUE)
+INSERT INTO student1(sname,address,phone,dob,salary,email)VALUES('s.Mouni','guntur','9505045987','2005-09-04',154.32,'mouni@gmail.com')
+,(sname,address,phone,dob,salary,email)VALUES('s.sri','goa','9505045898','2008-09-04',158.32,'sri@gmail.com')
+,('T.sarayu','guntur','8524896321','2009-01-04',152.32,'sarayu@gmail.com')
+,('p.sai ram','banglore','9505058964','1997-02-15',111.32,'ram@gmail.com')
+,('p.hello','chennai','9505056237','1996-02-04',154.32,'hello@gmail.com')
+
+SELECT * FROM student1
+SELECT * FROM student1 WHERE  address='guntur'
+
+SELECT * FROM student1 WHERE salary=14.382
+
+SELECT * FROM student1 WHERE sname like 's%'
+
+SELECT * FROM student1 WHERE sname like '%i'
+
+SELECT * FROM student1 WHERE sname like 's%i'
+
+SELECT * FROM student1 WHERE sname like 'm___l%i
+SELECT * FROM student1 WHERE dob LIKE '___09%'
+
+SELECT salary,sname FROM student1 WHERE salary= (SELECT MAX(salary) FROM student1)
+
+SELECT salary,sname FROM student1 WHERE salary= (SELECT MIN(salary) FROM student1)
+
+SELECT * FROM student1 WHERE dob BETWEEN '1995-01-01' AND '2000-12-31'
+
+SELECT * FROM student1 ORDER BY salary DESC
+
+SELECT * FROM student1 ORDER BY salary DESC LIMIT 3
+
+DESCRIBE student1
+SELECT * FROM student1 WHERE phoneno IS NULL
+
+SELECT * FROM student1 WHERE phoneno IS NOT NULL
+
+SELECT address,COUNT(*),GROUP_CONCAT(sname) AS 'allname contains' FROM student1 GROUP BY address
+
+
+CREATE TABLE student2(sid int(6) PRIMARY KEY AUTO_INCREMENT,sname varchar(15) NOT NULL,address text NULL,phone varchar(10) UNIQUE,dob date NULL,salary float(5,2) NOT NULL,email varchar(20) UNIQUE);
+INSERT INTO student2(sname,address,phoneno,dob,salary,email)VALUES('s.Mouni','guntur','9505045987','2005-09-04',154.32,'mouni@gmail.com'),('s.sri','goa','9505045898','2008-09-04',158.32,'sri@gmail.com')
+,('T.sarayu','guntur','8524896321','2009-01-04',152.32,'sarayu@gmail.com')
+,('p.sai ram','banglore','9505058964','1997-02-15',111.32,'ram@gmail.com')
+,('p.hello','chennai','9505056237','1996-02-04',154.32,'hello@gmail.com')
+
+SELECT * FROM student2
+SELECT * FROM student2 WHERE  address='guntur'
+
+SELECT * FROM student2 WHERE salary=111.32
+SELECT * FROM student2 WHERE sname like 's%'
+
+SELECT * FROM student2 WHERE sname like '%i'
+
+SELECT * FROM student2 WHERE sname like 's%i'
+
+SELECT salary,sname FROM student2 WHERE salary= (SELECT MAX(salary) FROM student2)
+
+SELECT salary,sname FROM student2 WHERE salary= (SELECT MIN(salary) FROM student2)
+
+SELECT * FROM student2 WHERE dob BETWEEN '1995-01-01' AND '2000-12-31'
+
+SELECT * FROM student2 ORDER BY salary DESC
+
+SELECT * FROM student2 ORDER BY salary DESC LIMIT 3
+DESCRIBE student2
+SELECT * FROM student2 WHERE phone IS NULL
+SELECT * FROM student2 WHERE phone IS NOT NULL
+SELECT address,COUNT(*),GROUP_CONCAT(sname) AS 'allname contains' FROM student2 GROUP BY address
+
+
+
+
+
