@@ -1,0 +1,17 @@
+{
+  "name": "day18task",
+  "version": "1.0.0",
+  "description": "moulisfiles",
+  "main": "customfiles",
+  "scripts": {
+    "test": "customfiles"
+  },
+  "keywords": [
+    "allcustomfiles"
+  ],
+  "author": "allcustomfiles",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
