@@ -1,0 +1,82 @@
+1.Create:
+
+db.student.insertOne({
+  name: "Mouli",
+  age: 30,
+  email: "Mouli@gmail.com",
+  place: "Andhra",
+  Gender: "Female",
+  pincode: 522005
+});
+
+db.student.insertMany([
+  { name: "sri", age: 25, email: "sri@gmail.com",place:"TamilNadu",Gender:"Female",pincode:345600},
+  { name: "Sai", age: 35, email: "sai@gmail.com",place:"Punjab",Gender:"Male",pincode:256256 },
+  { name: "Ram", age: 40, email: "ram@gmail.com",place:"Telangana",Gender:"Male",pincode:522002}
+]);
+
+2.Retriving the data:
+
+db.student.find();
+
+db.student.findOne({ name: "Mouli" });
+
+db.student.find({ age: { $gt: 30 } });
+
+db.student.find({ age: { $lt: 30 } }, { projection: { name: 1, _id: 0 } });
+
+db.student.find().sort({ age: -1 });
+
+db.student.find({
+  $or: [
+    { age: { $lt: 25 } },
+    { name: "Ram" }
+  ]
+});
+
+db.student.find(
+{ age: { $gte: 25, $lte: 35 } }
+);
+
+db.collection.find({ name: { $regex: /^A/, $options: "i" } });
+
+
+3.Update:
+db.student.updateOne(
+  { name: "Mouli" },
+  { $set: { age: 31 } }
+);
+
+db.student.updateMany(
+  { age: { $lt: 30 } },
+  { $set: { status: "young" } }
+);
+
+db.student.replaceOne(
+  { name: "Mouli" },
+  { name: "Mouli", age: 26, email: "moulika@gmail.com" }
+);
+
+db.collection.find(
+{ age: { $gte: 40 } }, 
+{ projection: { name: 1, age: 1, _id: 0 } }
+);
+
+
+4.Delete:
+db.student.deleteOne({ name: "Sai" });
+
+db.student.deleteMany({ age: { $lt: 30 } });
+
+db.student.drop();
+
+
+
+
+
+
+
+
+
+
+

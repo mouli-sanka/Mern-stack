@@ -1,0 +1,75 @@
+1.$match:
+
+db.orders.aggregate([
+  { $match: { status: "shipped" } }
+]);
+
+2.$group:
+
+db.orders.aggregate([
+  { $group: { _id: "$customerId", totalAmount: { $sum: "$amount" } } }
+]);
+
+3.$sort:
+
+db.orders.aggregate([
+  { $sort: { orderDate: -1 } }
+]);
+
+4.$project:
+
+db.orders.aggregate([
+  { $project: { orderId: 1, customerId: 1, totalAmount: { $multiply: ["$quantity", "$price"] } } }
+]);
+
+5.$lookup:
+
+db.orders.aggregate([
+  { $lookup: {
+    from: "customers",
+    localField: "customerId",
+    foreignField: "_id",
+    as: "customerInfo"
+  } }
+]);
+
+6.$unwind:
+
+db.orders.aggregate([
+  { $unwind: "$items" }
+]);
+
+7.$addFields:
+
+db.orders.aggregate([
+  { $addFields: { totalAmount: { $multiply: ["$quantity", "$price"] } } }
+]);
+
+8.$replaceRoot:
+
+db.orders.aggregate([
+  { $replaceRoot: { newRoot: "$customerInfo" } }
+]);
+
+9.$facet:
+
+db.orders.aggregate([
+  { $facet: {
+    "totalSales": [ { $group: { _id: null, total: { $sum: "$amount" } } } ],
+    "orderCounts": [ { $group: { _id: null, count: { $sum: 1 } } } ]
+  } }
+]);
+
+10.$bucket:
+
+db.orders.aggregate([
+  { $bucket: {
+    groupBy: "$amount",
+    boundaries: [0, 50, 100, 200, 500],
+    default: "Other",
+    output: {
+      count: { $sum: 1 },
+      totalAmount: { $sum: "$amount" }
+    }
+  } }
+]);
